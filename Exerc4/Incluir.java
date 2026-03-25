@@ -1,14 +1,14 @@
 
 package Exerc4;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Incluir implements Runnable {
 
-    private ArrayList<Short> lista;
+    private final List<Short> lista;
 
-    public Incluir(ArrayList<Short> lista) {
+    public Incluir(List<Short> lista) {
         this.lista = lista;
     }
 

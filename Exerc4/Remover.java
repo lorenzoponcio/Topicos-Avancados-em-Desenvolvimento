@@ -1,12 +1,12 @@
 package Exerc4;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Remover implements Runnable {
 
-    private ArrayList<Short> lista;
+    private final List<Short> lista;
 
-    public Remover(ArrayList<Short> lista) {
+    public Remover(List<Short> lista) {
         this.lista = lista;
     }
 

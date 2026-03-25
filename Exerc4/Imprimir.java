@@ -1,19 +1,21 @@
 package Exerc4;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Imprimir implements Runnable{
 
-    private ArrayList<Short> lista;
+    private final List<Short> lista;
 
-    public Imprimir(ArrayList<Short> lista){
+    public Imprimir(List<Short> lista){
         this.lista = lista;
     }
 
-@Override
+    @Override
     public void run() {
         while(!Thread.currentThread().isInterrupted()){
-            System.out.println(lista);
+            synchronized (lista) {
+                System.out.println(lista);
+            }
             try{
                 Thread.sleep(1000);
             }catch(InterruptedException ie){
