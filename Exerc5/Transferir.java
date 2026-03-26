@@ -1,15 +1,14 @@
 package Exerc5;
 
 import java.util.Random;
-import java.util.concurrent.atomic.AtomicInteger;
 
-class SistemaTransferencia implements Runnable {
-    private final Banco banco;
-    private final Random random = new Random();
-    private final AtomicInteger contador;
-    private volatile boolean rodando = true;
+class Transferir implements Runnable {
+    private Banco banco;
+    private Random random = new Random();
+    private int contador;
+    private boolean rodando = true;
 
-    public Transferir(Banco banco, AtomicInteger contador) {
+    public Transferir(Banco banco, int contador) {
         this.banco = banco;
         this.contador = contador;
     }
@@ -30,7 +29,7 @@ class SistemaTransferencia implements Runnable {
                 double valor = random.nextDouble() * 2500;
 
                 banco.transferir(origem, destino, valor);
-                contador.incrementAndGet();
+                contador++;
             }
         }
     }

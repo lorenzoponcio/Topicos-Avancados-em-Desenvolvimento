@@ -1,25 +1,30 @@
 package Exerc5;
 
-public class Imprimir implements Runnable{
+public class Imprimir implements Runnable {
 
-    private final Transferir transferir;
+    private final Banco banco;
 
-    public Imprimir(Transferir transferir){
-        this.transferir = transferir;
+    public Imprimir(Banco banco) {
+        this.banco = banco;
     }
 
     @Override
     public void run() {
-        while(!Thread.currentThread().isInterrupted()){
-            synchronized (transferir) {
-                System.out.println(transferir);
-            }
-            try{
+        while (!Thread.currentThread().isInterrupted()) {
+            try {
+                double total = banco.getSaldoTotal();
+
+                System.out.printf("Saldo total no banco: R$ %.2f%n", total);
+
+                if (Math.abs(total - 100000.0) > 0.01) {
+                    System.out.println("ERRO: saldo inconsistente!");
+                }
+
                 Thread.sleep(5000);
-            }catch(InterruptedException ie){
+
+            } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
         }
     }
-    
 }
