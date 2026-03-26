@@ -6,10 +6,10 @@ import java.util.List;
 class Banco {
     private final List<Conta> contas;
 
-    public Banco(int numContas, double saldoInicial) {
+    public Banco(int numContas) {
         contas = new ArrayList<>();
         for (int i = 0; i < numContas; i++) {
-            contas.add(new Conta(saldoInicial));
+            contas.add(new Conta());
         }
     }
 
@@ -17,7 +17,6 @@ class Banco {
         return contas;
     }
 
-    // Método sincronizado para evitar inconsistência
     public synchronized void transferir(int origem, int destino, double valor) {
         Conta c1 = contas.get(origem);
         Conta c2 = contas.get(destino);

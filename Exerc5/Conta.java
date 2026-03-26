@@ -3,8 +3,8 @@ package Exerc5;
 class Conta {
     private double saldo;
 
-    public Conta(double saldoInicial) {
-        this.saldo = saldoInicial;
+    public Conta() {
+        this.saldo = 1000.00;
     }
 
     public double getSaldo() {

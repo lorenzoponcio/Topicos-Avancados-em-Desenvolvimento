@@ -6,7 +6,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws InterruptedException {
 
-        Banco banco = new Banco(100, 1000.0);
+        Banco banco = new Banco(100);
         int contadorTransacoes = 0;
 
         List<Transferir> transferencias = new ArrayList<>();
